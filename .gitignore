@@ -1,0 +1,20 @@
+# Product marketing context (contains company-specific positioning — may be sensitive)
+# Uncomment if you want to share it across the team:
+# .agents/product-marketing-context.md
+
+# Claude Code local settings (permissions are machine-specific)
+.claude/settings.local.json
+
+# Environment files
+.env
+.env.*
+
+# Credentials
+*.key
+*.pem
+*.json.key
+service-account*.json
+
+# OS files
+.DS_Store
+Thumbs.db
