@@ -187,11 +187,11 @@ Avoid these patterns that signal AI-generated content:
 
 ### Prioritization
 
-Score each content idea:
-- **Customer impact** (40%): Does your ICP need this?
-- **Content-market fit** (30%): Can you say something unique?
-- **Search potential** (20%): Is there demand?
-- **Resource requirements** (10%): Can you do it well?
+When deciding what to write, weigh:
+- **Will our audience care?** — Does this serve a real need or question?
+- **Can we say something unique?** — Do we have a perspective, data, or experience others don't?
+- **Is there demand?** — Are people searching for this or sharing similar content?
+- **Can we do it well?** — Do we have the expertise and resources?
 
 ### Content Calendar
 - Plan 4-6 weeks ahead

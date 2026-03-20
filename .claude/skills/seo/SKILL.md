@@ -45,6 +45,7 @@ Run audits in priority order. Each issue gets: **Issue → Impact → Evidence �
 | Interactivity (INP) | < 200ms |
 | Layout stability (CLS) | < 0.1 |
 | Mobile-friendly | Passes Google's mobile test |
+| Bounce rate | In GA4: bounceRate = 1 − engagementRate (not the same as Universal Analytics) — prefer engagementRate as primary metric |
 | HTTPS | All pages, no mixed content |
 | URL structure | Clean, descriptive, no parameters |
 | Structured data | Valid JSON-LD, no errors in Rich Results Test |
@@ -99,9 +100,9 @@ AI search engines (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini) sel
 | Factor | Why it matters |
 |--------|---------------|
 | Structured, extractable content | AI needs clean passages it can quote |
-| Specific claims with data | Stats and numbers get cited more (41% boost per Princeton GEO research) |
+| Specific claims with data | Pages with statistics and cited data tend to get cited more frequently (early GEO research suggests significant uplift) |
 | Authority signals | Expert credentials, citations to sources |
-| Freshness | Content < 30 days old gets ~3.2x more citations |
+| Freshness | Recently published content tends to get cited more — keep key pages updated |
 | Direct answers | Clear, quotable statements in 134-167 word passages |
 
 ### AI Visibility Audit
@@ -121,7 +122,7 @@ AI search engines (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini) sel
 - Include "What is [X]?" and "How does [X] work?" sections
 
 **Build authority signals:**
-- Add statistics with sources (41% citation boost)
+- Add statistics with sources (early research shows significant citation uplift)
 - Include expert quotes with credentials
 - Add "according to" citations for claims
 - Reference original research or data
@@ -129,7 +130,7 @@ AI search engines (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini) sel
 **Expand presence beyond your site:**
 - Get cited on Wikipedia, industry publications
 - Contribute to relevant forums and communities
-- Brand mentions correlate 3x more strongly with AI citations than backlinks
+- Brand mentions may correlate more strongly with AI citations than traditional backlinks (emerging research — directional, not definitive)
 
 ### AI Search by Platform
 

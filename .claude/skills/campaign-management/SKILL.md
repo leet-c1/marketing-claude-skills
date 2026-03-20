@@ -53,9 +53,9 @@ Read `.agents/product-marketing-context.md` if it exists. Then gather what's mis
 ```
 
 Examples:
-- `META_Conv_Lookalike-Customers_FreeTrial_2024Q1`
+- `META_Conv_Lookalike_Customers_FreeTrial_2026Q1`
 - `GOOG_Search_Brand_Demo_Ongoing`
-- `LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24`
+- `LI_LeadGen_CMOs_SaaS_Whitepaper_Mar26`
 
 ### Account Organization
 
@@ -284,6 +284,7 @@ Account
 
 ## Related Skills
 
+- **product-marketing-context**: Foundation for audience, positioning, and campaign brief context
 - **google-analytics**: For tracking campaign performance and conversion data
 - **seo**: For organic search to complement paid
 - **content-copywriting**: For ad copy and landing page content

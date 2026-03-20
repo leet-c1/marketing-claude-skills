@@ -1,52 +1,52 @@
 # Marketing Workspace
 
-This workspace is configured for marketing team members using Claude Code with analytics and campaign tools.
+This workspace is configured for marketing team members using Claude Code with Google Analytics and other marketing tools.
 
 ## Getting Started
 
 **First time?** Start by creating your product marketing context:
 > "Help me set up our product marketing context"
 
-This creates `.agents/product-marketing-context.md` — a foundational document that all other skills reference for positioning, audience, and voice. You only do this once; update it as things change.
+This creates a foundational document about your product, audience, and voice that all other skills reference. You do this once; update it anytime things change. It takes about 20 minutes.
 
 ## Available Skills
 
 | Skill | When to use |
 |-------|-------------|
 | **google-analytics** | Pull analytics data, build reports, audit tracking, understand traffic and conversions |
-| **seo** | Audit search rankings, optimize pages, improve AI search visibility |
+| **seo** | Audit search rankings, optimize pages, improve visibility in Google and AI search |
 | **campaign-management** | Plan and optimize paid ads, email sequences, product launches |
 | **content-copywriting** | Write or improve marketing copy, blog posts, landing pages, emails |
-| **reporting** | Build weekly/monthly/quarterly performance reports |
-| **product-marketing-context** | Set up or update foundational positioning and audience context |
+| **reporting** | Build weekly, monthly, or quarterly performance reports |
+| **product-marketing-context** | Set up or update your product and audience context |
 
-## MCP Tools Available
+## How It Works
 
-This workspace connects to Google Analytics via MCP (mcp-axiomatic). You can:
-- Query GA4 properties for traffic, engagement, and conversion data
-- Pull reports by dimension (source, page, campaign, device, geography)
-- Access real-time and historical data
+Claude Code connects to Google Analytics through a tool called MCP (Model Context Protocol). This lets Claude pull real data from your GA4 account — traffic numbers, conversion rates, campaign performance, and more. Your admin sets up this connection; you just ask questions in plain language.
 
 ## Important Rules
 
-### All calculations must use code
-LLMs are unreliable at math — even simple percentages. Every number in a report must come from Python code, not mental math. This is non-negotiable. See the google-analytics skill for details.
+### All calculations use code
+Claude always writes and runs Python code for any math — percentages, growth rates, averages, totals. This prevents the calculation errors that AI makes when doing arithmetic in its head. You'll see code blocks in responses; that's normal and means the numbers are accurate.
 
 ### UTM hygiene
-- Always lowercase
-- Use underscores for spaces
-- Never put UTMs on internal links
-- Document all UTMs in a shared system
+UTM parameters are the tracking tags in campaign URLs (like `?utm_source=email`):
+- Always lowercase: `email` not `Email`
+- Use underscores for spaces: `spring_sale` not `spring sale`
+- Never put UTMs on links between your own pages — it breaks session tracking
 
 ### Privacy
-- Never include PII in analytics events or reports
-- Respect consent requirements (EU/UK/CA)
-- GA4 data retention should be set to 14 months
+- Never include personal information (names, emails, phone numbers) in analytics events
+- Cookie consent is required for visitors in the EU/UK (GDPR), Canada (CASL), and California (CCPA)
+- GA4 data retention should be set to 14 months (default is only 2)
 
-## Workflow Tips
+## Example Prompts
 
-- **"How is the site doing?"** → Triggers google-analytics skill for a performance overview
-- **"Check our SEO"** → Triggers seo skill for an audit
-- **"Write a landing page for X"** → Triggers content-copywriting skill
-- **"Build this month's report"** → Triggers reporting skill
-- **"Launch campaign for X"** → Triggers campaign-management skill
+- "How is the site doing?" — performance overview with trends
+- "Where is our traffic coming from?" — source/channel breakdown
+- "Check our SEO" — full audit with prioritized fixes
+- "Write a landing page for [product]" — draft with headline, copy, CTAs
+- "Build this month's report" — structured report vs. last month
+- "Plan a campaign for [launch]" — ads, emails, and timeline
+- "Which pages have the highest bounce rate?" — page-level analysis
+- "How did the [campaign name] campaign perform?" — campaign deep-dive

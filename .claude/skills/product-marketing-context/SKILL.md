@@ -124,3 +124,15 @@ Save to `.agents/product-marketing-context.md` with all sections in clean markdo
 - Ask for examples — they unlock better answers
 - Skip sections that don't apply (e.g., Personas for simple B2C)
 - Validate each section before moving on
+
+---
+
+## Related Skills
+
+Once your context document is set up, these skills will use it automatically:
+
+- **google-analytics**: Pull analytics data and build performance reports
+- **seo**: Audit and improve search rankings
+- **campaign-management**: Plan paid ads, email sequences, and launches
+- **content-copywriting**: Write and improve marketing copy
+- **reporting**: Build weekly, monthly, and quarterly reports

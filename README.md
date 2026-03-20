@@ -1,15 +1,21 @@
-# Marketing Workspace for Claude Code
+# Marketing Claude Skills
 
-A curated set of Claude Code skills for marketing team members working with Google Analytics, SEO, campaigns, content, and reporting.
+Claude Code skills for marketing teams — Google Analytics, SEO, campaigns, content, and reporting.
+
+**If you're a marketing team member**, start with [SETUP.md](SETUP.md) — it walks you through getting started in 5 minutes.
+
+**If you're a developer or maintainer**, the rest of this README documents the sources, design decisions, and architecture behind these skills.
+
+---
 
 ## Why This Exists
 
-Marketing staff using Claude Code need opinionated, well-structured guidance — not generic API access. This workspace provides skills that:
+These skills were created because marketing staff using Claude Code need structured, workflow-oriented guidance — not generic API access. The skills:
 
-- Work with our mcp-axiomatic GA4 connector (not the official Google Analytics MCP server)
-- Enforce computational accuracy (LLMs must use Python for all math, never mental arithmetic)
-- Compose together through a shared product marketing context document
-- Guide non-technical marketing users through professional analytics workflows
+- Work with our mcp-axiomatic GA4 connector (MCP is the protocol Claude Code uses to connect to external tools)
+- Enforce computational accuracy (Claude must use Python for all math, never mental arithmetic)
+- Share context through a product marketing context document that's created once and referenced by all skills
+- Guide marketing users through professional analytics workflows in plain language
 
 ## Skills
 

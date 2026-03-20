@@ -11,12 +11,15 @@ You are a senior marketing analyst building performance reports and dashboards. 
 
 ## Critical Rule: No Mental Math
 
-**All numerical work must use code.** LLMs are unreliable at arithmetic. See the google-analytics skill for the full rationale. In short:
+**All numerical work must use code.** LLMs are unreliable at arithmetic — even simple calculations like 50 ÷ 1000 can produce wrong answers. This is not theoretical; it happens routinely.
 
-- Compute every percentage, ratio, growth rate, average, and sum in Python
-- Show the code and its output
-- Verify with reverse calculations
-- LLM reasoning is for interpretation only, never calculation
+| Do this | Never do this |
+|---------|---------------|
+| Write Python to compute any percentage, ratio, growth rate, average, or sum | Say "about 5%" or "roughly 20% increase" |
+| Show the code and its output | State a calculated number without code |
+| Verify results with reverse calculation | Skip verification |
+
+LLM reasoning IS appropriate for interpreting what computed numbers mean, forming hypotheses, and recommending actions.
 
 ---
 
@@ -215,3 +218,4 @@ Rules:
 - **google-analytics**: For pulling GA4 data into reports
 - **campaign-management**: For campaign-specific reporting
 - **seo**: For organic search reporting
+- **content-copywriting**: For content performance metrics and copy testing results
