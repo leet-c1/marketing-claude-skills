@@ -4,6 +4,42 @@ Claude Code skills for marketing teams — Google Analytics, SEO, campaigns, con
 
 **If you're a marketing team member**, start with [SETUP.md](SETUP.md) — it walks you through getting started in 5 minutes.
 
+## What You Can Do
+
+Once set up, just ask Claude what you need in plain language:
+
+**Analytics & Traffic**
+- "How is the site doing?" — performance overview with trends
+- "Where is our traffic coming from?" — source and channel breakdown
+- "Which pages have the highest bounce rate?" — page-level analysis
+- "How did the spring campaign perform?" — campaign deep-dive with attribution
+- "Are our events firing correctly?" — tracking audit and debugging
+
+**SEO & Search**
+- "Check our SEO" — full audit with prioritized fixes
+- "Why aren't we ranking for [keyword]?" — keyword and content gap analysis
+- "How do we show up in AI search?" — AI/GEO visibility audit
+- "Audit our schema markup" — structured data review
+
+**Campaigns & Ads**
+- "Plan a campaign for [product launch]" — ads, emails, and timeline
+- "Should I run ads on Google or Meta?" — platform selection with rationale
+- "Write an email sequence for new signups" — drip campaign with timing
+- "Our CPA is too high, what should we change?" — optimization playbook
+
+**Content & Copy**
+- "Write a landing page for [product]" — headline, copy, and CTAs
+- "Improve this copy" — editing with the seven sweeps framework
+- "Write a blog post about [topic]" — SEO-informed content
+- "This page doesn't convert, help me fix it" — CRO-oriented rewrite
+
+**Reporting**
+- "Build this month's report" — structured report vs. last month
+- "Show me the numbers for Q1" — quarterly business review
+- "What should I put in the board deck?" — executive summary with key metrics
+
+---
+
 **If you're a developer or maintainer**, the rest of this README documents the sources, design decisions, and architecture behind these skills.
 
 ---
@@ -19,14 +55,14 @@ These skills were created because marketing staff using Claude Code need structu
 
 ## Skills
 
-| Skill | Lines | Purpose |
-|-------|-------|---------|
-| [google-analytics](.claude/skills/google-analytics/SKILL.md) | 385 | Query GA4 data, build reports, audit tracking, UTM standards, event tracking |
-| [seo](.claude/skills/seo/SKILL.md) | 245 | Traditional SEO audit + AI search (GEO) optimization |
-| [campaign-management](.claude/skills/campaign-management/SKILL.md) | 290 | Paid ads, email sequences, product launches — full campaign lifecycle |
-| [content-copywriting](.claude/skills/content-copywriting/SKILL.md) | 223 | Write, edit, and improve marketing copy and content |
-| [reporting](.claude/skills/reporting/SKILL.md) | 217 | Weekly, monthly, and quarterly marketing performance reports |
-| [product-marketing-context](.claude/skills/product-marketing-context/SKILL.md) | 126 | Foundational positioning and audience document — run this first |
+| Skill | What it helps you do |
+|-------|---------------------|
+| [google-analytics](.claude/skills/google-analytics/SKILL.md) | Pull traffic and conversion data, understand what's working, audit your tracking setup |
+| [seo](.claude/skills/seo/SKILL.md) | Improve your Google rankings and get cited by AI search engines like ChatGPT and Perplexity |
+| [campaign-management](.claude/skills/campaign-management/SKILL.md) | Plan and optimize paid ads, email sequences, and product launches |
+| [content-copywriting](.claude/skills/content-copywriting/SKILL.md) | Write landing pages, blog posts, emails, and improve existing copy |
+| [reporting](.claude/skills/reporting/SKILL.md) | Build weekly, monthly, and quarterly performance reports for your team or leadership |
+| [product-marketing-context](.claude/skills/product-marketing-context/SKILL.md) | Describe your product, audience, and voice once — all other skills use it automatically |
 
 ## Architecture
 
