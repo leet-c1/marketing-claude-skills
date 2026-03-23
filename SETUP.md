@@ -9,6 +9,12 @@
    ```
 3. **Google Analytics access** — your admin will connect Claude Code to your company's GA4 account. You don't need to do anything for this step.
 
+4. **ConductorOne MCP server** — this connects Claude to ConductorOne so it can request access to external systems (Salesforce, GA4, etc.) on your behalf. Run this in a terminal:
+   ```bash
+   claude mcp add conductorone --transport http https://your-tenant.conductor.one/api/v1alpha/mcp
+   ```
+   Replace `your-tenant` with your company's ConductorOne tenant domain. Your admin can provide this. Claude will prompt you to authenticate when it first connects.
+
 ## Getting Started (5 minutes)
 
 Once your admin confirms everything is set up:
@@ -41,6 +47,7 @@ Once your admin confirms everything is set up:
 | content-copywriting | Write and improve marketing copy, blog posts, landing pages |
 | reporting | Build weekly, monthly, and quarterly performance reports |
 | product-marketing-context | Set up your product and audience context (run this first) |
+| c1-request-access | Request access to external systems (Salesforce, GA4, etc.) via ConductorOne |
 
 ## Things to Know
 
@@ -55,6 +62,13 @@ Once your admin confirms everything is set up:
 **Claude can't access Google Analytics:**
 Send this message to your admin:
 > "Claude Code needs the mcp-axiomatic Google Analytics connector configured. The GCP service account needs Viewer access to our GA4 property, and the MCP server needs to be added to Claude Code's settings."
+
+**Claude can't request access to external tools:**
+Make sure you've added the ConductorOne MCP server (step 4 above). If it's already added, check that your tenant domain is correct:
+```bash
+claude mcp list
+```
+If the server shows but connections fail, ask your admin to verify your ConductorOne account has the right permissions.
 
 **Claude doesn't seem to know our product:**
 Run "Help me set up our product marketing context" to create or update the context document.

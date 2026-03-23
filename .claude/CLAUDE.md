@@ -19,10 +19,15 @@ This creates a foundational document about your product, audience, and voice tha
 | **content-copywriting** | Write or improve marketing copy, blog posts, landing pages, emails |
 | **reporting** | Build weekly, monthly, or quarterly performance reports |
 | **product-marketing-context** | Set up or update your product and audience context |
+| **c1-request-access** | Check and request access to external systems (Salesforce, GA4, etc.) via ConductorOne |
 
-## How It Works
+## Shared Context
 
-Claude Code connects to Google Analytics through a tool called MCP (Model Context Protocol). This lets Claude pull real data from your GA4 account — traffic numbers, conversion rates, campaign performance, and more. Your admin sets up this connection; you just ask questions in plain language.
+All skills check for `.agents/product-marketing-context.md` on startup. This document (product, audience, voice, positioning) is created once via the `product-marketing-context` skill and consumed by all others.
+
+## Data Access
+
+Accessing external data (GA4, Salesforce, etc.) requires the ConductorOne MCP server. Before querying any external system, invoke the `c1-request-access` skill to check whether access is granted and request it if not. Never call external system tools directly without checking access first.
 
 ## Important Rules
 

@@ -63,6 +63,7 @@ These skills were created because marketing staff using Claude Code need structu
 | [content-copywriting](.claude/skills/content-copywriting/SKILL.md) | Write landing pages, blog posts, emails, and improve existing copy |
 | [reporting](.claude/skills/reporting/SKILL.md) | Build weekly, monthly, and quarterly performance reports for your team or leadership |
 | [product-marketing-context](.claude/skills/product-marketing-context/SKILL.md) | Describe your product, audience, and voice once — all other skills use it automatically |
+| [c1-request-access](.claude/skills/c1-request-access/SKILL.md) | Check and request access to external systems (Salesforce, GA4, etc.) via ConductorOne |
 
 ## Architecture
 
@@ -83,7 +84,8 @@ These skills were created because marketing staff using Claude Code need structu
 │       ├── campaign-management/SKILL.md
 │       ├── content-copywriting/SKILL.md
 │       ├── reporting/SKILL.md
-│       └── product-marketing-context/SKILL.md
+│       ├── product-marketing-context/SKILL.md
+│       └── c1-request-access/SKILL.md
 └── README.md                             # This file
 ```
 
@@ -96,6 +98,7 @@ Cross-references between skills:
 - **seo** references google-analytics (organic traffic measurement) and content-copywriting (creating optimized content)
 - **campaign-management** references google-analytics (attribution), content-copywriting (ad copy), and reporting (performance reports)
 - **reporting** references all data-producing skills
+- **c1-request-access** is a prerequisite for all skills that query external systems — it checks tool availability and requests ConductorOne entitlements before any external data is fetched
 
 The no-mental-math rule lives in google-analytics (primary) and reporting (reinforced), since those are the two skills that produce numbers.
 
