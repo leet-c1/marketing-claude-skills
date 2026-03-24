@@ -40,7 +40,7 @@ Once set up, just ask Claude what you need in plain language:
 
 ---
 
-**If you're a developer or maintainer**, the rest of this README documents the sources, design decisions, and architecture behind these skills.
+**If you're contributing or customizing these skills**, the rest of this README documents the sources, design decisions, and architecture.
 
 ---
 
@@ -48,7 +48,7 @@ Once set up, just ask Claude what you need in plain language:
 
 These skills were created because marketing staff using Claude Code need structured, workflow-oriented guidance — not generic API access. The skills:
 
-- Work with our mcp-axiomatic GA4 connector (MCP is the protocol Claude Code uses to connect to external tools)
+- Work with GA4 via the ConductorOne MCP server hosted in your ConductorOne environment
 - Enforce computational accuracy (Claude must use Python for all math, never mental arithmetic)
 - Share context through a product marketing context document that's created once and referenced by all skills
 - Guide marketing users through professional analytics workflows in plain language
@@ -57,18 +57,18 @@ These skills were created because marketing staff using Claude Code need structu
 
 | Skill | What it helps you do |
 |-------|---------------------|
-| [google-analytics](.claude/skills/google-analytics/SKILL.md) | Pull traffic and conversion data, understand what's working, audit your tracking setup |
-| [seo](.claude/skills/seo/SKILL.md) | Improve your Google rankings and get cited by AI search engines like ChatGPT and Perplexity |
-| [campaign-management](.claude/skills/campaign-management/SKILL.md) | Plan and optimize paid ads, email sequences, and product launches |
-| [content-copywriting](.claude/skills/content-copywriting/SKILL.md) | Write landing pages, blog posts, emails, and improve existing copy |
-| [reporting](.claude/skills/reporting/SKILL.md) | Build weekly, monthly, and quarterly performance reports for your team or leadership |
-| [product-marketing-context](.claude/skills/product-marketing-context/SKILL.md) | Describe your product, audience, and voice once — all other skills use it automatically |
-| [c1-request-access](.claude/skills/c1-request-access/SKILL.md) | Check and request access to external systems (Salesforce, GA4, etc.) via ConductorOne |
+| **google-analytics** | Pull traffic and conversion data, understand what's working, audit your tracking setup |
+| **seo** | Improve your Google rankings and get cited by AI search engines like ChatGPT and Perplexity |
+| **campaign-management** | Plan and optimize paid ads, email sequences, and product launches |
+| **content-copywriting** | Write landing pages, blog posts, emails, and improve existing copy |
+| **reporting** | Build weekly, monthly, and quarterly performance reports for your team or leadership |
+| **product-marketing-context** | Describe your product, audience, and voice once — all other skills use it automatically |
+| **c1-request-access** | Check and request access to external systems (Salesforce, GA4, etc.) via ConductorOne |
 
 ## Architecture
 
 ```
-~/marketing/
+marketing/
 ├── .agents/                              # Product marketing context (created on first use)
 ├── .claude/
 │   ├── CLAUDE.md                         # Workspace orientation for new users
@@ -110,10 +110,10 @@ Each skill is a consolidated superset of the best available open-source skill fi
 
 | Source | What we took | What we left out |
 |--------|-------------|-----------------|
-| [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates) | Analysis workflows (performance overview, traffic sources, pages, campaigns, funnels) | Python pip-install setup (irrelevant — we use MCP), generic "ask me" prompts |
+| [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates) | Analysis workflows (performance overview, traffic sources, pages, campaigns, funnels) | Python pip-install setup (irrelevant — we use the ConductorOne MCP server), generic "ask me" prompts |
 | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | Event naming conventions, UTM standards, debugging/validation, GA4 configuration, event library, GA4 implementation reference | Tool-specific registry (Mixpanel, Amplitude, etc.), duplicate event lists across skill and references |
 | [fujii-yuji GA4 cursor rules](https://gist.github.com/fujii-yuji/bcbfc1b88b4468538335d2c11101e0c3) | No-mental-math rule (elevated to #1 rule), verification pattern, boundary between calculation and interpretation | Japanese-only examples (translated), verbose repetition of the same rule |
-| [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | Attribution model comparison table, funnel analysis methodology | Static JSON-only workflow (we have live MCP access), Python CLI scripts |
+| [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | Attribution model comparison table, funnel analysis methodology | Static JSON-only workflow (we have live access via the ConductorOne MCP server), Python CLI scripts |
 
 **Key design decisions:**
 - The fujii-yuji insight that LLMs fail at basic arithmetic was promoted from a cursor rule footnote to the most prominent rule in the skill. This is the single most impactful quality improvement.
@@ -202,14 +202,9 @@ Each skill is a consolidated superset of the best available open-source skill fi
 |-----------------|--------|
 | Parallel subagent architectures | Over-engineered for a marketing user's needs; adds complexity without proportional value |
 | PDF report generation | Implementation-specific; the skill should produce good content, the format is secondary |
-| Tool-specific integrations (Mixpanel, Amplitude, Segment, etc.) | We use mcp-axiomatic for GA4; other tools can be added as MCP connectors when needed |
+| Tool-specific integrations (Mixpanel, Amplitude, Segment, etc.) | We use the ConductorOne MCP server for GA4; other tools can be added as connectors when needed |
 | Scoring formulas (SEO Health Score, CORE-EEAT 80-item benchmark, etc.) | These create false precision; a prioritized issue list is more actionable than a score |
 | 60+ marketing psychology mental models | Valuable as reference material but too large and unfocused for task-oriented skills |
 | Product Hunt launch playbook | Too specific for a general launch strategy section |
 | Prospect/proposal management | Sales function, not marketing workspace scope |
-| Platform-specific API rate limits | Implementation detail that belongs in MCP server config, not skill files |
-
-## Related Projects
-
-- **[mcp-axiomatic](../mcp-axiomatic/)** — The MCP server framework providing GA4 API access (Analytics v3, Admin, Data, Hub, Reporting APIs)
-- **[c1-mcp-research](../c1-mcp-research/)** — Research and architecture docs for MCP connector infrastructure, including GA4 authentication
+| Platform-specific API rate limits | Implementation detail that belongs in the ConductorOne MCP server config, not skill files |
