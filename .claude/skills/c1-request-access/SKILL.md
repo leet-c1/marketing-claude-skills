@@ -53,7 +53,12 @@ This avoids unnecessary access requests for tools the user can already use.
 
 ## Step 2 — Identify the Current User
 
-Call `mcp__conductorone__list_introspect` to get the authenticated user's identity.
+First, load the ConductorOne tools needed for the remaining steps (they are deferred and must be fetched before use):
+```
+ToolSearch(query: "select:mcp__conductorone__list_introspect,mcp__conductorone__request_catalog_search_entitlements,mcp__conductorone__app_search_search,mcp__conductorone__app_entitlement_search_service_search,mcp__conductorone__list_entitlement,mcp__conductorone__task_service_get", max_results: 10)
+```
+
+Then call `mcp__conductorone__list_introspect` to get the authenticated user's identity.
 
 Extract:
 - `userId` — needed for submitting access requests
